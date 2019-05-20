@@ -28,6 +28,7 @@ ADD etc/standalone-full-kie-server.xml $JBOSS_HOME/standalone/configuration/stan
 ADD etc/kie-server-users.properties $JBOSS_HOME/standalone/configuration/kie-server-users.properties
 ADD etc/kie-server-roles.properties $JBOSS_HOME/standalone/configuration/kie-server-roles.properties
 ADD etc/start_kie-server.sh $JBOSS_HOME/bin/start_kie-server.sh
+ADD etc/update_db_config.sh $JBOSS_HOME/bin/update_db_config.sh
 ADD etc/settings.xml $JBOSS_HOME/../.m2/settings.xml
 
 # Added files are chowned to root user, change it to the jboss one.

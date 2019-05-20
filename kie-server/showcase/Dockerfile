@@ -29,6 +29,8 @@ ADD etc/kie-server-users.properties $JBOSS_HOME/standalone/configuration/kie-ser
 ADD etc/kie-server-roles.properties $JBOSS_HOME/standalone/configuration/kie-server-roles.properties
 ADD etc/start_kie-server.sh $JBOSS_HOME/bin/start_kie-server.sh
 ADD etc/update_db_config.sh $JBOSS_HOME/bin/update_db_config.sh
+ADD etc/jbpm-postgres-config.cli $JBOSS_HOME/bin/jbpm-postgres-config.cli
+ADD etc/jbpm-mysql-config.cli $JBOSS_HOME/bin/jbpm-mysql-config.cli
 ADD etc/settings.xml $JBOSS_HOME/../.m2/settings.xml
 
 # Added files are chowned to root user, change it to the jboss one.
