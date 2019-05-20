@@ -37,7 +37,7 @@ COPY etc/drivers/ $JBOSS_HOME/bin/drivers/
 
 # Added files are chowned to root user, change it to the jboss one.
 USER root
-RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone-full-kie-server.xml && \
+RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/kie-server-users.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/kie-server-roles.properties && \
 chown jboss:jboss $JBOSS_HOME/bin/update_db_config.sh && \
