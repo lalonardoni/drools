@@ -39,7 +39,8 @@ fi
 
 # Start Wildfly with the given arguments.
 echo "Update database connection setup"
-RUN ["chmod", "+x", "./update_db_config.sh"]
+chmod +x ./update_db_config.sh
+./update_db_config.sh
 
 # Start Wildfly with the given arguments.
 echo "Running KIE Execution Server on JBoss Wildfly..."
