@@ -33,6 +33,7 @@ ADD etc/jbpm-postgres-config.cli $JBOSS_HOME/bin/jbpm-postgres-config.cli
 ADD etc/jbpm-mysql-config.cli $JBOSS_HOME/bin/jbpm-mysql-config.cli
 ADD etc/settings.xml $JBOSS_HOME/../.m2/settings.xml
 COPY etc/add-ons/ $JBOSS_HOME/modules/system/add-ons/
+COPY etc/drivers/ $JBOSS_HOME/bin/drivers/
 
 # Added files are chowned to root user, change it to the jboss one.
 USER root
