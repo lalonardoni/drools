@@ -10,14 +10,14 @@ MAINTAINER "Leandro Alberto Lonardoni" "leandro.lonardoni@benner.com.br"
 
 ####### ENVIRONMENT ############
 # ENV KIE_SERVER_ID kie-server
-ENV KIE_SERVER_LOCATION http://13.89.188.255:8080/kie-server/services/rest/server  
+ENV KIE_SERVER_LOCATION http://localhost:9090/kie-server/services/rest/server  
 ENV KIE_SERVER_USER kieserver
 ENV KIE_SERVER_PWD kieserver1!
 # When using this image against jboss/jbpm-workbench-showcase use /jbpm-console/rest/controller
-ENV KIE_SERVER_CONTROLLER http://40.77.30.247:8080/business-central/rest/controller
+ENV KIE_SERVER_CONTROLLER http://localhost:8080/business-central/rest/controller
 ENV KIE_SERVER_CONTROLLER_USER wbadmin
 ENV KIE_SERVER_CONTROLLER_PWD wbadmin
-ENV KIE_MAVEN_REPO http://40.77.30.247:8080/business-central/maven2    
+ENV KIE_MAVEN_REPO http://localhost:8080/business-central/maven2    
 ENV KIE_MAVEN_REPO_USER wbadmin
 ENV KIE_MAVEN_REPO_PASSWORD wbadmin
 ENV JAVA_OPTS -Xms256m -Xmx1024m -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8
