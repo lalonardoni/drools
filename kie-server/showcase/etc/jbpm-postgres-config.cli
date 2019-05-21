@@ -34,6 +34,8 @@ end-if
 /system-property=org.kie.server.user:add(value="KIE_SERVER_USER")
 /system-property=org.kie.server.pwd:add(value="KIE_SERVER_PWD")
 /system-property=org.kie.server.location:add(value="KIE_SERVER_LOCATION")
+/system-property=org.kie.server.controller.user:add(value="KIE_SERVER__CONTROLLER_USER")
+/system-property=org.kie.server.controller.pwd:add(value="KIE_SERVER__CONTROLLER_PWD")
 /system-property=org.jbpm.casemgmt.showcase.url:add(value="/jbpm-casemgmt")
 	
 stop-embedded-server
