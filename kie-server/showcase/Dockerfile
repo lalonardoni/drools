@@ -9,17 +9,17 @@ FROM jboss/kie-server:7.14.0.Final
 MAINTAINER "Leandro Alberto Lonardoni" "leandro.lonardoni@benner.com.br"
 
 ####### ENVIRONMENT ############
-# ENV KIE_SERVER_ID kie-server
+ENV KIE_SERVER_ID kie-server
 ENV KIE_SERVER_LOCATION http://localhost:9090/kie-server/services/rest/server  
 ENV KIE_SERVER_USER kieserver
 ENV KIE_SERVER_PWD kieserver1!
 # When using this image against jboss/jbpm-workbench-showcase use /jbpm-console/rest/controller
 ENV KIE_SERVER_CONTROLLER http://localhost:8080/business-central/rest/controller
-ENV KIE_SERVER_CONTROLLER_USER wbadmin
-ENV KIE_SERVER_CONTROLLER_PWD wbadmin
+ENV KIE_SERVER_CONTROLLER_USER admin
+ENV KIE_SERVER_CONTROLLER_PWD admin
 ENV KIE_MAVEN_REPO http://localhost:8080/business-central/maven2    
-ENV KIE_MAVEN_REPO_USER wbadmin
-ENV KIE_MAVEN_REPO_PASSWORD wbadmin
+ENV KIE_MAVEN_REPO_USER admin
+ENV KIE_MAVEN_REPO_PASSWORD admin
 ENV JAVA_OPTS -Xms256m -Xmx1024m -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8
 
 ####### Drools KIE Server CUSTOM CONFIGURATION ############
@@ -43,6 +43,14 @@ chown jboss:jboss $JBOSS_HOME/standalone/configuration/kie-server-roles.properti
 chown jboss:jboss $JBOSS_HOME/bin/update_db_config.sh && \
 chown jboss:jboss $JBOSS_HOME/bin/start_kie-server.sh && \
 chown jboss:jboss $JBOSS_HOME/../.m2/settings.xml
+
+RUN sed -i '/<property name="org.kie.server.id" value="$KIE_SERVER_ID"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
+RUN sed -i '/<property name="org.kie.server.location" value="$KIE_SERVER_LOCATION"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
+RUN sed -i '/<property name="org.kie.server.user" value="$KIE_SERVER_USER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
+RUN sed -i '/<property name="org.kie.server.pwd" value="$KIE_SERVER_PWD"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
+RUN sed -i '/<property name="org.kie.server.controller" value="$KIE_SERVER_CONTROLLER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
+RUN sed -i '/<property name="org.kie.server.controller.user" value="$KIE_SERVER_CONTROLLER_USER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
+RUN sed -i '/<property name="org.kie.server.controller.pwd" value="$KIE_SERVER_CONTROLLER_PWD"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
 
 ####### JBOSS USER ############
 # Switchback to jboss user
