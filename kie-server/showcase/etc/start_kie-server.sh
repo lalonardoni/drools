@@ -42,13 +42,6 @@ echo "Update database connection setup"
 chmod +x ./update_db_config.sh
 ./update_db_config.sh
 
-sed -i '/<property name="org.kie.server.id" value="$KIE_SERVER_ID"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-sed -i '/<property name="org.kie.server.location" value="$KIE_SERVER_LOCATION"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-sed -i '/<property name="org.kie.server.user" value="$KIE_SERVER_USER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-sed -i '/<property name="org.kie.server.pwd" value="$KIE_SERVER_PWD"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-sed -i '/<property name="org.kie.server.controller" value="$KIE_SERVER_CONTROLLER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-sed -i '/<property name="org.kie.server.controller.user" value="$KIE_SERVER_CONTROLLER_USER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-sed -i '/<property name="org.kie.server.controller.pwd" value="$KIE_SERVER_CONTROLLER_PWD"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
 
 # Start Wildfly with the given arguments.
 echo "Running KIE Execution Server on JBoss Wildfly..."

@@ -29,30 +29,11 @@ else
     /system-property=org.kie.server.persistence.dialect:write-attribute(name=value,value="org.hibernate.dialect.PostgreSQLDialect")
 end-if
 
-
-
-if (outcome != success) of /system-property=org.kie.server.id:read-resource
-	/system-property=org.kie.server.id:add(value="sample-server")
-else
-    /system-property=org.kie.server.id:write-attribute(name=value,value="sample-server")
-end-if
-
-if (outcome != success) of /system-property=org.kie.server.controller:read-resource
-	/system-property=org.kie.server.controller:add(value="http://localhost:8080/business-central/rest/controller")
-else
-    /system-property=org.kie.server.controller:write-attribute(name=value,value="http://localhost:8080/business-central/rest/controller")
-end-if
-
-if (outcome != success) of /system-property=org.kie.server.location:read-resource
-	/system-property=org.kie.server.location:add(value="http://localhost:8080/kie-server/services/rest/server")
-else
-    /system-property=org.kie.server.location:write-attribute(name=value,value="http://localhost:8080/kie-server/services/rest/server")
-end-if
-
-if (outcome != success) of /system-property=org.jbpm.casemgmt.showcase.url:read-resource
-    /system-property=org.jbpm.casemgmt.showcase.url:add(value="/jbpm-casemgmt")
-else
-    /system-property=org.jbpm.casemgmt.showcase.url:write-attribute(name=value,value="/jbpm-casemgmt")
-end-if
+/system-property=org.kie.server.id:add(value="KIE_SERVER_ID")
+/system-property=org.kie.server.controller:add(value="KIE_SERVER_CONTROLLER")
+/system-property=org.kie.server.user:add(value="KIE_SERVER_USER")
+/system-property=org.kie.server.pwd:add(value="KIE_SERVER_PWD")
+/system-property=org.kie.server.location:add(value="KIE_SERVER_LOCATION")
+/system-property=org.jbpm.casemgmt.showcase.url:add(value="/jbpm-casemgmt")
 	
 stop-embedded-server

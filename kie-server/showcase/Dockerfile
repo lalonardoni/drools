@@ -44,14 +44,6 @@ chown jboss:jboss $JBOSS_HOME/bin/update_db_config.sh && \
 chown jboss:jboss $JBOSS_HOME/bin/start_kie-server.sh && \
 chown jboss:jboss $JBOSS_HOME/../.m2/settings.xml
 
-RUN sed -i '/<property name="org.kie.server.id" value="$KIE_SERVER_ID"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-RUN sed -i '/<property name="org.kie.server.location" value="$KIE_SERVER_LOCATION"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-RUN sed -i '/<property name="org.kie.server.user" value="$KIE_SERVER_USER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-RUN sed -i '/<property name="org.kie.server.pwd" value="$KIE_SERVER_PWD"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-RUN sed -i '/<property name="org.kie.server.controller" value="$KIE_SERVER_CONTROLLER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-RUN sed -i '/<property name="org.kie.server.controller.user" value="$KIE_SERVER_CONTROLLER_USER"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-RUN sed -i '/<property name="org.kie.server.controller.pwd" value="$KIE_SERVER_CONTROLLER_PWD"\/>/d' $JBOSS_HOME/standalone/configuration/standalone.xml
-
 ####### JBOSS USER ############
 # Switchback to jboss user
 USER jboss
